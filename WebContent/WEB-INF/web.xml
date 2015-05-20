@@ -16,6 +16,9 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         <param-value>classpath:spring/application-config.xml</param-value>
     </context-param>
 
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     
     
     <!--
@@ -35,10 +38,5 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
         <servlet-name>dispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
-
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
 </web-app>
