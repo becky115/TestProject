@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+body{background-color: pink;}
+table{
+	 border-collapse: collapse;
+	border:1px solid #ff3f5c;
+}
