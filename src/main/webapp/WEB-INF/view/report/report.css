@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+html{
+	font-family: nanum;
+	color:black;
+}
+table{
+	border-collapse: collapse;
+	
+}
+table.dataTable{
+	width:500px;
+	margin:10px 0px 30px 0px
+}
+
+table.dataTable tr{
+	height:25px;
+}
+table.dataTable th{
+	font-weight: bold;
+}
+
+
+table.dataSubTable{
+	width:100%;
+}
+
+table th,td{
+	border:1px solid chocolate;
+	padding:0px;
+	text-align:center;
+	
+}
+
+
+
+table.dataSubTable td{
+	width:100%;
+	text-align:left;
+	border:0px;
+}
+
+
+table.dataSubTable tr{
+	border-bottom:1px solid chocolate;
+}
+
+table.dataSubTable tr:last-child{
+	border:0px;
+}

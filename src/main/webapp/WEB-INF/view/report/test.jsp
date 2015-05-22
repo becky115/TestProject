@@ -7,7 +7,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		 -->
 	<title>Report TestPage</title>
+	<!-- 
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/report/test.css"/>"/>
+	 -->
+	<link rel="stylesheet" type="text/css" href="/resources/css/report/test.css"/>
 
 </head>
 <body>
