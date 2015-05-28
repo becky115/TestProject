@@ -1,5 +1,6 @@
 package com.naru.itext;
 
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
@@ -23,13 +24,12 @@ public class ITextPageEvent implements PdfPageEvent{
 		PdfContentByte cb = writer.getDirectContent();
 		cb.saveState();
 		
-			
 		Rectangle rect = writer.getBoxSize("headerBox");
 		
-		   cb.rectangle(rect.getLeft(), rect.getBottom(), rect.getWidth(), rect.getHeight());
-		    cb.stroke();
-		    cb.setLineWidth(3);
-		    cb.restoreState();
+		cb.rectangle(rect.getLeft(), rect.getBottom(), rect.getWidth(), rect.getHeight());
+		cb.stroke();
+		cb.setLineWidth(3);
+		cb.restoreState();
 		
 //		ColumnText.showTextAligned(writer.getDirectContent(), Element.ALIGN_CENTER, new Phrase("on end page"), rect.getLeft(), rect.getBottom(), 0);
 		

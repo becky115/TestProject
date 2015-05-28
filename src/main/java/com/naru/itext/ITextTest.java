@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.charset.Charset;
 
-import javax.swing.text.html.HTML.Tag;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -22,13 +20,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
-import com.itextpdf.tool.xml.Pipeline;
 import com.itextpdf.tool.xml.XMLWorker;
 import com.itextpdf.tool.xml.XMLWorkerFontProvider;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
 import com.itextpdf.tool.xml.css.CssFile;
 import com.itextpdf.tool.xml.css.StyleAttrCSSResolver;
-import com.itextpdf.tool.xml.exceptions.CssResolverException;
 import com.itextpdf.tool.xml.html.Tags;
 import com.itextpdf.tool.xml.parser.XMLParser;
 import com.itextpdf.tool.xml.pipeline.css.CSSResolver;
@@ -38,6 +34,8 @@ import com.itextpdf.tool.xml.pipeline.html.HtmlPipeline;
 import com.itextpdf.tool.xml.pipeline.html.HtmlPipelineContext;
 
 
+//http://forum.spring.io/forum/spring-projects/web/98555-spring-pdf-issue
+//AbstractView extends
 
 public class ITextTest {
 	//@Autowired private ITextDao itextDao;
@@ -89,7 +87,6 @@ public class ITextTest {
 		doc.add(ph);
 		doc.add(new Paragraph("pdf test333333"));
 		
-		
 		LineSeparator line = new LineSeparator(1, 100, BaseColor.PINK, Element.ALIGN_CENTER, -5);
 		doc.add(line);
 		
@@ -99,7 +96,6 @@ public class ITextTest {
 		
 		doc.add(Chunk.NEWLINE);
 		doc.add(line);
-		
 		
 		doc.addTitle("pdf title");
 		System.out.println("document create >> basicTest::"+ pdfWriter.getPageNumber());
@@ -111,8 +107,6 @@ public class ITextTest {
 	}
 	
 	public static void tableTest(ITextDao itextDao, String fileName) throws DocumentException, IOException{
-	
-		
 		
 		ITextDoc itextDoc = new ITextDoc(PageSize.A4, 20, 20, 20, 20);
 		
@@ -126,19 +120,11 @@ public class ITextTest {
 		System.out.println(doc.bottom()+"-"+doc.bottomMargin());
 		System.out.println(doc.getPageSize());
 		
-		
-		//Rectangle headerBox = new Rectangle(50, 50, 545, 792); //left, bottom
-		Rectangle headerBox = new Rectangle(doc.left(), doc.bottom(), doc.right(), doc.top()); //left, bottom,  right, top
-//		headerBox.setBorder(1);
-//		headerBox.setBorderColor(BaseColor.DARK_GRAY);
-//		headerBox.setBackgroundColor(BaseColor.CYAN);
-		
-		
+		Rectangle headerBox = new Rectangle(doc.left(), doc.bottom(), doc.right(), doc.top()); //left, bottom, right, top
 		
 		pdfWriter.setPageEvent(new ITextPageEvent());
 		pdfWriter.setBoxSize("headerBox", headerBox);
 		doc.open();
-		
 		
 		PdfPTable table = new PdfPTable(5);
 		table.getDefaultCell().setBackgroundColor(BaseColor.YELLOW);
@@ -148,8 +134,6 @@ public class ITextTest {
 		cell.setBackgroundColor(BaseColor.LIGHT_GRAY);
 		cell.setVerticalAlignment(Element.ALIGN_MIDDLE);//높이 지정해야함
 		cell.setHorizontalAlignment(Element.ALIGN_CENTER);//글자 가운데
-		
-		
 		
 		table.addCell(cell);
 		table.addCell("cell2");
@@ -163,9 +147,6 @@ public class ITextTest {
 				table.addCell("data: "+ i+"-"+j);
 			}
 		}
-		
-//		
-	
 		
 		BaseFont bf = BaseFont.createFont("com/naru/itext/NanumGothic.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
 		
@@ -195,23 +176,14 @@ public class ITextTest {
 		PdfWriter pdfWriter = PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 		doc.open();
 		
-		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/view/report/test2.jsp";
-		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/view/report/style.css";
-		
-		XMLWorkerHelper xwh = XMLWorkerHelper.getInstance();
+		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/test2.jsp";
+		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/style.css";
+
 		
 		// CSS
 		CSSResolver cssResolver = new StyleAttrCSSResolver();
 		CssFile cssFile = XMLWorkerHelper.getCSS(new FileInputStream(cssFilePath));
 		cssResolver.addCss(cssFile);
-
-		//Font
-		//XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
-		//fontProvider.register("./fonts/arial.ttf");
-		//fontProvider.register("./fonts/sans-serif.ttf");
-		//fontProvider.addFontSubstitute("lowagie", "garamond");
-		//CssAppliers cssAppliers = new CssAppliersImpl(fontProvider);
-		
 		
 		// HTML
 		HtmlPipelineContext htmlContext = new HtmlPipelineContext(null);//null or cssAppliers
@@ -221,14 +193,11 @@ public class ITextTest {
 		PdfWriterPipeline pdf = new PdfWriterPipeline(doc, pdfWriter);
 		HtmlPipeline html = new HtmlPipeline(htmlContext, pdf);
 		CssResolverPipeline css = new CssResolverPipeline(cssResolver, html);
-				
-			
+		
 		
 		XMLWorker worker = new XMLWorker(css, true);
 		XMLParser xmlParser = new XMLParser(worker, Charset.forName("UTF-8"));
 		xmlParser.parse(new FileInputStream(filePath));
-		
-
 
 	//	xwh.parseXHtml(writer, document, new FileInputStream(filePath), css);
 		doc.close();
@@ -240,28 +209,17 @@ public class ITextTest {
 		PdfWriter pdfWriter = PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 		doc.open();
 		
-		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/view/report/report.jsp";
-		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/view/report/report.css";
+		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.jsp";
+		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.css";
 			
 		XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
 		fontProvider.register("com/naru/itext/NanumGothic.ttf", "nanum"); 
 		
 
 		System.out.println(fontProvider);
-	
-		
 
-
-		
 		XMLWorkerHelper.getInstance().parseXHtml(pdfWriter, doc, new FileInputStream(filePath), new FileInputStream(cssFilePath), fontProvider);
-		
-		
-		
-	
 
-		
-		
-		
 		doc.close();
 	}
 	
