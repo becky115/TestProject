@@ -33,14 +33,8 @@ import com.itextpdf.tool.xml.pipeline.end.PdfWriterPipeline;
 import com.itextpdf.tool.xml.pipeline.html.HtmlPipeline;
 import com.itextpdf.tool.xml.pipeline.html.HtmlPipelineContext;
 
-
-//http://forum.spring.io/forum/spring-projects/web/98555-spring-pdf-issue
-//AbstractView extends
-
 public class ITextTest {
-	//@Autowired private ITextDao itextDao;
-	
-	
+
 	final static String filePath = "/Users/ejlee/Downloads/pdfTest/";
 	
 	public static void main(String[] args) {
@@ -49,14 +43,12 @@ public class ITextTest {
 		String fileName = "example";
 		String fileExtension = "pdf";
 		
-	//	String downLoadPath = filePath;+fileName;
-		
 		try {
 			String downloadPath = filePath+itextDao.makeFileName(fileName, fileExtension);
 			//htmltoPdfConvertTest(itextDao, downloadPath);
 			//basicTest(itextDao, downloadPath);
 			//tableTest(itextDao, downloadPath);
-			htmlConvertTest2(itextDao, downloadPath);
+			htmlConvertTest(itextDao, downloadPath);
 			
 			
 		} catch (DocumentException e) {
@@ -73,7 +65,6 @@ public class ITextTest {
 
 	
 	public static void basicTest(ITextDao itextDao, String fileName) throws FileNotFoundException, DocumentException{
-		
 		ITextDoc itextDoc = new ITextDoc(PageSize.A4, 20, 20, 20, 20);
 		Document doc = itextDao.makeDocument(itextDoc);
 		
@@ -189,6 +180,10 @@ public class ITextTest {
 		HtmlPipelineContext htmlContext = new HtmlPipelineContext(null);//null or cssAppliers
 		htmlContext.setTagFactory(Tags.getHtmlTagProcessorFactory());
 		
+		
+		
+		
+		
 		// Pipelines
 		PdfWriterPipeline pdf = new PdfWriterPipeline(doc, pdfWriter);
 		HtmlPipeline html = new HtmlPipeline(htmlContext, pdf);
@@ -198,10 +193,8 @@ public class ITextTest {
 		XMLWorker worker = new XMLWorker(css, true);
 		XMLParser xmlParser = new XMLParser(worker, Charset.forName("UTF-8"));
 		xmlParser.parse(new FileInputStream(filePath));
-
-	//	xwh.parseXHtml(writer, document, new FileInputStream(filePath), css);
-		doc.close();
 		System.out.println("document create: "+ doc.getPageNumber());
+		doc.close();
 	}
 	
 	public static void htmlConvertTest2(ITextDao itextDao, String fileName) throws DocumentException, IOException{
@@ -214,9 +207,6 @@ public class ITextTest {
 			
 		XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
 		fontProvider.register("com/naru/itext/NanumGothic.ttf", "nanum"); 
-		
-
-		System.out.println(fontProvider);
 
 		XMLWorkerHelper.getInstance().parseXHtml(pdfWriter, doc, new FileInputStream(filePath), new FileInputStream(cssFilePath), fontProvider);
 

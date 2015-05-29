@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
+import com.itextpdf.text.pdf.PdfWriter;
 
 
 public class ITextDao {
@@ -43,6 +44,17 @@ public class ITextDao {
 		int randomNum = (int) (Math.random()*10000);
 		String resultFileName = fileName+"("+fmtDate+"_"+randomNum+")";
 		return resultFileName+"."+fileExtension;
+	}
+
+
+	public void pdfClose(Document doc, PdfWriter pdfWriter) {
+		if(doc.isOpen()){
+			doc.close();
+		}
+		if(pdfWriter != null){
+			pdfWriter.flush();
+			pdfWriter.close();
+		}
 	}
 	
 	

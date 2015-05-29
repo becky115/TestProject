@@ -3,47 +3,34 @@ html{
 	font-family: nanum;
 	color:black;
 }
-table{
-	border-collapse: collapse;
+
+table, td, th{
 	
+	border:0.5px solid chocolate;
+	border-spacing:0px
 }
-table.dataTable{
-	width:500px;
-	margin:10px 0px 30px 0px
-}
-
-table.dataTable tr{
+table tr{
 	height:25px;
+	border-color:chocolate;
 }
-table.dataTable th{
-	font-weight: bold;
-}
-
-
-table.dataSubTable{
-	width:100%;
+table th{
+	padding:10px 5px;
+	font-weight:bold;
+	
 }
 
 table th,td{
-	border:1px solid chocolate;
-	padding:0px;
-	text-align:center;
 	
+	text-align:center;
 }
 
-
-
-table.dataSubTable td{
+table.dataSubTable{
 	width:100%;
-	text-align:left;
-	border:0px;
+	
+	border:0.1px solid red;
+}
+table.dataSubTable td{
+	background-color: #c3faff;
+	border:0.1px solid red;
 }
 
-
-table.dataSubTable tr{
-	border-bottom:1px solid chocolate;
-}
-
-table.dataSubTable tr:last-child{
-	border:0px;
-}

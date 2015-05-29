@@ -1,8 +1,8 @@
 package com.naru.itext;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.AbstractView;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
@@ -24,6 +25,8 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.XMLWorkerFontProvider;
+import com.itextpdf.tool.xml.XMLWorkerHelper;
 
 
 
@@ -48,6 +51,7 @@ public class PdfViewHandler extends AbstractView{
 			throws Exception {
 		logger.debug("model: "+ model);
 		
+		
 		String fileName = "test";
 		String fileExtension = "pdf";
 		String fileNameTemp = itextDao.makeFileName(fileName, fileExtension);
@@ -56,12 +60,20 @@ public class PdfViewHandler extends AbstractView{
 		response.setHeader("Content-Transfer-Encoding", "binary");
 		
 		ByteArrayOutputStream baos = createTemporaryOutputStream();
-		
 		ITextDoc itextDoc = new ITextDoc(PageSize.A4, 20, 20, 20, 20);
-		
 		Document doc = itextDao.makeDocument(itextDoc);
 		PdfWriter pdfWriter = PdfWriter.getInstance(doc, baos);
+		
+		
+		htmlConvertTest(doc, pdfWriter);
+		itextDao.pdfClose(doc, pdfWriter);
+		writeToResponse(response, baos);
+		
+	}
 
+	
+	@Autowired(required = false)
+	private void tableExampleCreate(Document doc, PdfWriter pdfWriter) throws DocumentException, IOException {
 		Rectangle headerBox = new Rectangle(doc.left(), doc.bottom(), doc.right(), doc.top()); //left, bottom, right, top
 		pdfWriter.setPageEvent(new ITextPageEvent());
 		pdfWriter.setBoxSize("headerBox", headerBox);
@@ -95,16 +107,22 @@ public class PdfViewHandler extends AbstractView{
 		doc.add(table);
 		doc.newPage();
 		doc.add(new Paragraph("new page 2"));
-
-		if(doc.isOpen()){
-			doc.close();
-		}
-		if(pdfWriter != null){
-			pdfWriter.flush();
-			pdfWriter.close();
-		}
-		writeToResponse(response, baos);
+	}
+	
+	@Autowired(required = false)
+	public void htmlConvertTest(Document doc, PdfWriter pdfWriter) throws DocumentException, IOException{
+		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.jsp";
+		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.css";
+	
+		doc.open();
 		
+		XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
+		fontProvider.register("com/naru/itext/NanumGothic.ttf", "nanum"); 
+
+		XMLWorkerHelper.getInstance().parseXHtml(pdfWriter, doc, new FileInputStream(filePath), new FileInputStream(cssFilePath), fontProvider);
+		
+	
+
 	}
 
 }
