@@ -46,7 +46,10 @@
 	<bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/><!-- org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" -->
 	
 	<bean id="pdfDownload" class="com.naru.itext.PdfViewHandler"/>
-
+	
+	
+	<import resource="./jasper-views.xml"/>
+	
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<!-- @ResponseBody로 String 처리할때 한글처리 -->
@@ -61,5 +64,6 @@
 	</mvc:annotation-driven>
 
 	<mvc:default-servlet-handler />
-
+	
+	
 </beans>

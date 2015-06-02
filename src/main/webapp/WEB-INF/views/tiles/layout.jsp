@@ -18,6 +18,7 @@
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
     background-color: #f5f5f5;
     border-right: 1px solid #eee;
+ }
 }
 
 
@@ -56,20 +57,17 @@
 </head>
 <body>
 	<tiles:insertAttribute name="header"/>
-	
-		<div class="container-fluid">
-			<div class="row">
-				 <div class="col-sm-3 col-md-2 sidebar" style="background-color: #F2F2F2;"> 
-					<tiles:insertAttribute name="menu"/>
-				 </div>
-				 <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-2 main" style="background-color: #D8D8D8;">
-					<tiles:insertAttribute name="body" flush="true"></tiles:insertAttribute>
-					<tiles:insertAttribute name="contents" flush="true"></tiles:insertAttribute>
-				 </div>
-			</div>
-
+	<div class="container-fluid bodyCustom">
+		<div class="row bodyCustom">
+			 <div class="col-sm-3 col-md-2 sidebar" style="background-color: #F2F2F2;"> 
+				<tiles:insertAttribute name="menu"/>
+			 </div>
+			 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="background-color: #E0F2F7; height:100%;">
+				<tiles:insertAttribute name="body" flush="true"></tiles:insertAttribute>
+				<tiles:insertAttribute name="contents" flush="true"></tiles:insertAttribute>
+			 </div>
 		</div>
-
+	</div>
 	<tiles:insertAttribute name="footer"/>
 </body>
 </html>

@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 	private static final Logger logger = LoggerFactory.getLogger(MainController.class);
 	
-	@RequestMapping("/")
+	@RequestMapping("/index.do")
 	public ModelAndView home(){
 		ModelAndView mav = new ModelAndView("/main/index");
 		logger.debug("main index..");

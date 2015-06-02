@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2015-05-12T18:04:28 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6311b68a-3ef0-4427-9d6d-011d23fc5795">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="cd86959f-8fe3-4758-8dd3-88dfc9c6272a">
+		<field name="customer" class="java.lang.String"/>
+	</subDataset>
+	<field name="REPORT_DATA_SOURCE" class="net.sf.jasperreports.engine.data.JRBeanArrayDataSource"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="380" height="41" uuid="26fa2346-7661-4f07-a02a-d970f5c8aaeb"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[APT EMS 트래픽 분석 월간 보고 및 점검]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="20" width="91" height="41" uuid="f0f7c7e4-4017-44d6-b44a-ee9b791eb1af"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[(2015-5월)]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="5" width="100" height="30" uuid="9844de84-6e27-4fa8-9686-be4ea8f7a8d5"/>
+				<text><![CDATA[Page Header]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="15" width="100" height="30" uuid="5e413ab6-ae98-4d7b-9150-86902471aa54"/>
+				<text><![CDATA[Column Header]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="470" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="91" height="51" uuid="09718c53-3ed5-494d-a777-2337b696f8a2"/>
+				<text><![CDATA[Detail 1]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="130" y="40" width="410" height="145" uuid="d5ad5f01-ed01-4361-8ba5-2795f7cf7593"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="48c2fe7b-af0b-4c37-ae62-da9a0c189e42">
+						<dataSourceExpression><![CDATA[$P{REPORT_DATA_SOURCE}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="100" uuid="a3ee967a-bb28-40ab-bd92-ee87436dc509">
+						<jr:tableHeader style="Table_TH" height="25">
+							<staticText>
+								<reportElement x="9" y="4" width="71" height="21" uuid="14c3a8d6-bdfb-482a-9fd2-909ab15e2a57"/>
+								<text><![CDATA[제품명]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="Table_TH" height="30"/>
+						<jr:columnHeader style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="9" y="4" width="71" height="21" uuid="29348bbb-2f7f-499c-baf8-10f7c8d8601d"/>
+								<text><![CDATA[고객]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30">
+							<staticText>
+								<reportElement x="9" y="4" width="71" height="21" uuid="87e4e1c7-c823-4e2c-bd6d-7e27246015db"/>
+								<text><![CDATA[담당자 ]]></text>
+							</staticText>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="30">
+							<staticText>
+								<reportElement x="9" y="4" width="71" height="21" uuid="8d7fad6f-408e-41df-a282-52b59242e6ca"/>
+								<text><![CDATA[담당부서]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:columnGroup width="310" uuid="d45aca9a-ae02-47ef-aec1-2d5bcfd87345">
+						<jr:column width="100" uuid="0519839b-d2cd-4f13-a325-007711510040">
+							<jr:tableHeader style="Table_TH" height="25">
+								<staticText>
+									<reportElement x="24" y="4" width="76" height="16" uuid="72002cd4-eb8e-4f1c-bc75-c964fab299c7"/>
+									<text><![CDATA[EPS]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<textField>
+									<reportElement x="0" y="0" width="100" height="30" uuid="4ab7c32c-5f21-41de-a182-b2996e4132d3"/>
+									<textFieldExpression><![CDATA[$F{customer}]]></textFieldExpression>
+								</textField>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30">
+								<textField>
+									<reportElement x="0" y="2" width="90" height="23" uuid="57f434f4-e175-4b7e-8c1e-444ef0aa6437"/>
+									<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="100" uuid="40f0b864-0298-4139-8ef0-56d64bdad3d8">
+							<jr:tableHeader style="Table_TH" height="25"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30">
+								<staticText>
+									<reportElement x="9" y="4" width="71" height="21" uuid="096383dd-a29f-424b-9f69-f2ee4f2c861a"/>
+									<text><![CDATA[점검일자]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="Table_CH" height="30">
+								<staticText>
+									<reportElement x="9" y="4" width="71" height="21" uuid="5f731731-a1e2-4273-bdfb-f206bf36a543"/>
+									<text><![CDATA[점검자]]></text>
+								</staticText>
+							</jr:columnFooter>
+							<jr:detailCell style="Table_TD" height="30">
+								<staticText>
+									<reportElement x="9" y="4" width="71" height="21" uuid="bc6acf02-9677-4fdb-87dd-fc9e0ed87a13"/>
+									<text><![CDATA[점검시간]]></text>
+								</staticText>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="110" uuid="be5b6bec-6b91-47f8-8dea-32dafe52834e">
+							<jr:tableHeader style="Table_TH" height="25"/>
+							<jr:tableFooter style="Table_TH" height="30"/>
+							<jr:columnHeader style="Table_CH" height="30"/>
+							<jr:columnFooter style="Table_CH" height="30"/>
+							<jr:detailCell style="Table_TD" height="30"/>
+						</jr:column>
+					</jr:columnGroup>
+				</jr:table>
+			</componentElement>
+		</band>
+		<band height="50"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="7" width="100" height="30" uuid="2b46e6c8-e69a-4e4c-b34b-aa2c4d096f96"/>
+				<text><![CDATA[Column Footer]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="15" width="100" height="30" uuid="51774c1b-5942-4ba1-8905-60e7cdd07e84"/>
+				<text><![CDATA[Page Footer]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="6" width="100" height="30" uuid="47cdcd3d-fe9d-4105-a8cc-934282ad281c"/>
+				<text><![CDATA[Summary]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

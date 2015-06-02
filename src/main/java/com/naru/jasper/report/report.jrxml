@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2015-05-15T16:41:57 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7488b030-ecdd-4869-8193-6a52754e165b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Style1"/>
+	<parameter name="filePath" class="java.lang.String"/>
+	<parameter name="reportYear" class="java.lang.String"/>
+	<parameter name="reportMonth" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="basicInfo" class="java.util.Map"/>
+	<field name="systemCheckList" class="java.util.Collection"/>
+	<field name="detectHistory" class="java.util.Map"/>
+	<field name="detectDetailList" class="java.util.Collection"/>
+	<variable name="testField" class="java.lang.String">
+		<variableExpression><![CDATA["dd"]]></variableExpression>
+	</variable>
+	<variable name="systemCheckSubReport" class="java.lang.String">
+		<variableExpression><![CDATA[($P{filePath} == null ? "":$P{filePath})+"report/sub.jasper"]]></variableExpression>
+	</variable>
+	<variable name="detectSubReport" class="java.lang.String">
+		<variableExpression><![CDATA[($P{filePath} == null ? "":$P{filePath})+"report/detectSub.jasper"]]></variableExpression>
+	</variable>
+	<variable name="detectContentSubReport" class="java.lang.String">
+		<variableExpression><![CDATA[($P{filePath} == null ? "":$P{filePath})+"report/detectSubContent.jasper"]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="267" height="40" uuid="cbb32117-fea2-41b4-aa90-ca4f84e62e22">
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Bottom">
+					<font size="16" isBold="true" isUnderline="false"/>
+					<paragraph lineSpacing="Single" lineSpacingSize="1.0" firstLineIndent="0"/>
+				</textElement>
+				<text><![CDATA[APT EMS 트래픽 분석 월간보고 및 점검 ]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="265" y="0" width="166" height="40" uuid="955ee8d9-b76b-49c0-8e79-374b3c225ba7">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<staticText>
+					<reportElement x="1" y="0" width="10" height="40" uuid="2a800f79-e23c-4ddc-afc8-5ba1eb5dc30a">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Bottom">
+						<font size="16"/>
+					</textElement>
+					<text><![CDATA[(]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="74" y="0" width="10" height="40" uuid="57a38f6f-571c-4878-89c3-8ea560d34f6c">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Left" verticalAlignment="Bottom">
+						<font size="16"/>
+					</textElement>
+					<text><![CDATA[)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="12" y="0" width="32" height="40" uuid="879b8cc2-2620-48fa-ae08-46227e2caf91">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Justified" verticalAlignment="Bottom">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{reportYear}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="56" y="0" width="17" height="40" uuid="838abdf2-a1b0-4649-b4c8-b64d913f436d">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<textElement textAlignment="Justified" verticalAlignment="Bottom">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{reportMonth}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="45" y="0" width="10" height="40" uuid="fed4f560-535c-43e1-ad43-59013c650f69">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="16"/>
+					</textElement>
+					<text><![CDATA[-]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="161" splitType="Stretch">
+			<frame>
+				<reportElement x="3" y="0" width="467" height="130" uuid="855e09d0-ed90-4a1a-84ac-326da92044a3"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Double"/>
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<bottomPen lineWidth="0.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="30" uuid="1aab9bb5-2373-45ea-8707-159dcb3ce55f">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[제품명]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="30" width="100" height="30" uuid="58c346d6-4105-440e-bc29-c4d47a3cea68">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[고객사]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="60" width="100" height="30" uuid="b370eeba-9b98-433b-909d-1a855ee6c389">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[담당부서]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="90" width="100" height="30" uuid="e6ece2fc-17eb-4040-8549-5d5fbc287dae">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[담당자]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="0" width="360" height="30" uuid="498e94f1-bb5f-43a9-990a-fc9a8b2d60fd">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("productName")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="30" width="130" height="30" uuid="072fce95-f6c5-44f7-995f-feadfea806c3">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("customerCompany")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="60" width="130" height="30" uuid="d418ddc9-17b2-41c5-9f4a-d1c3d4697d16">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("customerDepartment")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="90" width="130" height="30" uuid="7ed83a1f-fc2a-40c4-90fc-bdc2f8915d54">
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("customerUsername")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="230" y="30" width="100" height="30" uuid="9e2b7759-f581-46f7-983d-4163c457dda4">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[점검일자]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="230" y="60" width="100" height="30" uuid="d35cdf2e-620f-4cd5-995d-bb0b5dfe5532">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[점검시간]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="230" y="90" width="100" height="30" uuid="5c3badc4-d2a1-4ad2-aa92-76d40ce92283">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[점검자]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="330" y="30" width="130" height="30" uuid="040cf2e9-9fef-429f-8cb7-aea40bcf7a59">
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("checkDate")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="330" y="60" width="130" height="30" uuid="5bbf0ac4-48be-4a1c-845f-cb2242a3b39a">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("checkTime")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="330" y="90" width="130" height="30" uuid="01da77c3-696c-4268-86de-dd1cd3423e63">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{basicInfo}.get("checkUserName")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="114">
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="30" width="555" height="61" uuid="65375f16-6186-44dc-b39b-c86ea1a1af3f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<subreport>
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="1" width="555" height="60" uuid="ae6e033e-f584-446e-b731-647247827a2f">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<subreportParameter name="testField">
+						<subreportParameterExpression><![CDATA[$V{testField}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="systemCheckList">
+						<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{systemCheckList})]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{systemCheckList})]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$V{systemCheckSubReport}]]></subreportExpression>
+				</subreport>
+			</frame>
+			<staticText>
+				<reportElement x="1" y="0" width="157" height="30" uuid="1fb8b429-6e6b-4f8a-9cd7-65a514a2bb0c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[1. 시스템 점검]]></text>
+			</staticText>
+		</band>
+		<band height="164">
+			<staticText>
+				<reportElement x="1" y="0" width="157" height="30" uuid="93bf3c77-709f-42ca-b8a7-34be37ef6ed2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[2. 이상 트래픽 탐지현황]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="30" width="100" height="30" uuid="cd5c6686-4de9-45f3-bfca-c7b631898c22"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[2-1. 총 탐지내역]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="1" y="60" width="552" height="90" uuid="63cdde0a-9892-46c0-9006-fa591fbf6941">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="60" uuid="a492282c-7fdb-4163-a704-1881295a0f14">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[총 탐지내역]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="100" y="0" width="380" height="30" uuid="3b6fc239-d89d-4549-b22a-f1594bb0a031">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[이상 트래픽 탐지현황]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="100" y="30" width="380" height="30" uuid="a17abc4b-2f45-40c1-86eb-be016601ca70">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<text><![CDATA[행위기반 탐지]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="0" y="60" width="100" height="30" uuid="dbe7cf7c-d972-4d52-8edd-43e4dce6440e">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{detectHistory}.get("totalDetectNum")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="100" y="60" width="380" height="30" uuid="9debc4d4-0d2d-489f-8bbf-4c8d804124bd">
+						<property name="local_mesure_unitx" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.x" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{detectHistory}.get("actionDetectNum")]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="145">
+			<staticText>
+				<reportElement x="1" y="10" width="149" height="30" uuid="02be8654-abee-442c-8d44-d695ff31858f"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2-2. 이상 트래픽 탐지명세]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="40" width="500" height="30" uuid="ca691a4b-0807-4dfa-bf62-06452c7d4632"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2-2-1. 행위 기반 탐지(행위기반 분석에 의한 보안정책 위반 행위)]]></text>
+			</staticText>
+			<frame>
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="70" width="555" height="60" uuid="72af5455-0611-481d-ae48-d1340e6e2983">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<subreport>
+					<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="555" height="60" uuid="a1f5bc3f-de5b-49d8-a4c2-fe4d5b124881">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					</reportElement>
+					<subreportParameter name="testField">
+						<subreportParameterExpression><![CDATA[$V{testField}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="detectContentSubReport">
+						<subreportParameterExpression><![CDATA[$V{detectContentSubReport}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter name="detectDetailList">
+						<subreportParameterExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detectDetailList})]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{detectDetailList})]]></dataSourceExpression>
+					<subreportExpression><![CDATA[$V{detectSubReport}]]></subreportExpression>
+				</subreport>
+			</frame>
+		</band>
+	</detail>
+</jasperReport>
