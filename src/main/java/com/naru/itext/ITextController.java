@@ -28,8 +28,14 @@ public class ITextController {
 	
 	@RequestMapping(value="/test.do")
 	public ModelAndView test(){
-		ModelAndView mav = new ModelAndView("report/test");
+		ModelAndView mav = new ModelAndView("/itext/test");
 		itextDao.test();
+		return mav;
+	}
+	
+	@RequestMapping(value="/index")
+	public ModelAndView index(){
+		ModelAndView mav = new ModelAndView("/itext/index");
 		return mav;
 	}
 	

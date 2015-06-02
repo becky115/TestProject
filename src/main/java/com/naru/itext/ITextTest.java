@@ -167,8 +167,8 @@ public class ITextTest {
 		PdfWriter pdfWriter = PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 		doc.open();
 		
-		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/test2.jsp";
-		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/style.css";
+		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/itext/test2.jsp";
+		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/itext/style.css";
 
 		
 		// CSS
@@ -202,8 +202,8 @@ public class ITextTest {
 		PdfWriter pdfWriter = PdfWriter.getInstance(doc, new FileOutputStream(fileName));
 		doc.open();
 		
-		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.jsp";
-		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.css";
+		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/itext/report.jsp";
+		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/itext/report.css";
 			
 		XMLWorkerFontProvider fontProvider = new XMLWorkerFontProvider();
 		fontProvider.register("com/naru/itext/NanumGothic.ttf", "nanum"); 

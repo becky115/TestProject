@@ -111,8 +111,8 @@ public class PdfViewHandler extends AbstractView{
 	
 	@Autowired(required = false)
 	public void htmlConvertTest(Document doc, PdfWriter pdfWriter) throws DocumentException, IOException{
-		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.jsp";
-		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/report/report.css";
+		String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/itext/report.jsp";
+		String cssFilePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/webapp/WEB-INF/views/itext/report.css";
 	
 		doc.open();
 		
