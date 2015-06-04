@@ -28,7 +28,7 @@ public class ReportExport {
 			String downloadPath = System.getProperty("user.dir")+"/pdfDownload/";
 			String downloadFileName = "pdf_"+now.getTime()+".pdf";
 			String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/java/com/naru/jasper/graph/";
-			String fileName = "test/test3.jrxml";
+			String fileName = "test/test4.jrxml";
 			String reportYear = "2015";
 			String reportMonth = "05";
 			
@@ -44,7 +44,7 @@ public class ReportExport {
 			
 			//data create
 			ReportData reportData = new ReportData();
-			Map<String, ?> resultData = (Map<String, ?>) reportData.getData2();
+			Map<String, ?> resultData = (Map<String, ?>) reportData.getData();
 			Collection<Map<String, ?>> resultList = new ArrayList<Map<String,?>>();
 			resultList.add(resultData);
 	

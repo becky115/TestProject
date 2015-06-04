@@ -25,9 +25,12 @@
 	</columnHeader>
 	<detail>
 		<band height="301" splitType="Stretch">
+			<printWhenExpression><![CDATA[$V{PAGE_COUNT} == 1]]></printWhenExpression>
 			<barChart>
 				<chart isShowLegend="true" evaluationTime="Report">
-					<reportElement x="20" y="20" width="500" height="270" uuid="4d61d11d-e7ce-4d8c-a57e-e0fbf709b0cc"/>
+					<reportElement x="20" y="20" width="500" height="270" uuid="4d61d11d-e7ce-4d8c-a57e-e0fbf709b0cc">
+						<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
+					</reportElement>
 					<box>
 						<topPen lineWidth="1.0"/>
 						<leftPen lineWidth="1.0"/>

@@ -9,7 +9,7 @@ public  class ReportData {
 	
 	private List<Map<?, ?>> dataList; 
 
-	public Map<String, ?> getData() {
+	public Map<String, ?> getData() {//test2, test4
 		Map<String, Object> resultData = new HashMap<String, Object>();
 		
 		dataList = new ArrayList<Map<?, ?>>();
@@ -44,7 +44,7 @@ public  class ReportData {
 		return resultData;
 	}
 	
-	public Map<String, ?> getData2() {
+	public Map<String, ?> getData2() {//test1, test3
 		Map<String, Object> resultData = new HashMap<String, Object>();
 		
 		dataList = new ArrayList<Map<?, ?>>();
