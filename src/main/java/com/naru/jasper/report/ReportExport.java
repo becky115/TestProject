@@ -22,7 +22,7 @@ public class ReportExport {
 			
 			//jrxml load
 			
-			String filePath = "/Users/ejlee/Documents/git/connectome-web/src/main/java/com/narusec/web/test/";
+			String filePath = "/Users/ejlee/Documents/git/TestProject/TestReport/src/main/java/com/naru/jasper/";
 			String fileName = "report/report.jrxml";
 			String reportYear = "2015";
 			String reportMonth = "05";

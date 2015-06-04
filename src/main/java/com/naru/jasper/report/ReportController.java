@@ -45,8 +45,8 @@ public class ReportController {
 		Collection<Map<String, ?>> resultList = new ArrayList<Map<String,?>>();
 		resultList.add(resultData);
 		JRDataSource dataSource = new JRBeanCollectionDataSource(resultList);
-		JRDataSource dataSource2 = new JRBeanCollectionDataSource((Collection<?>) resultData.get("systemCheckList"));
-		JRDataSource dataSource3 = new JRBeanCollectionDataSource((Collection<?>) resultData.get("detectDetailList"));
+		JRDataSource dataSource2 = new JRBeanCollectionDataSource((Collection<?>) reportData.getSystemCheckList());
+		JRDataSource dataSource3 = new JRBeanCollectionDataSource((Collection<?>) reportData.getDetectDetailList());
 		//JRDataSource dataSource4 = new JRBeanCollectionDataSource((Collection<?>) resultData.get("detectContentList"));
 		params.put("dataSource", dataSource);
 		params.put("subReportData", dataSource2);
